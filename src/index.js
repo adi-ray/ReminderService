@@ -5,6 +5,8 @@ const { PORT } = require("./config/server-config");
 
 const TicketController = require("./controllers/ticket-controller");
 
+const jobs = require("./utils/job");
+
 const setupAndStartServer = () => {
   const app = express();
   app.use(bodyParser.json());
@@ -14,6 +16,7 @@ const setupAndStartServer = () => {
 
   app.listen(PORT, () => {
     console.log(`Server started at port ${PORT}`);
+    jobs();
   });
 };
 
